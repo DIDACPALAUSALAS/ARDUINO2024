@@ -1,35 +1,41 @@
+/**********************************************************************************
+**                                                                               **
+**                          Control Structures                                   **
+**                                                                               **
+**                                                                               **
+**********************************************************************************/
+
 //********** Includes *************************************************************
 
-// 
-
 //********** Variables ************************************************************
-int tempAigua = 101;
+int sensorReading = 4;
 
 //********** Setup ****************************************************************
-void setup()              // 
+void setup()
 {
-  Serial.begin(9600);     // 
-
-  if (tempAigua > 100)   // 
-  {
-    Serial.print("Aigua bullint!");
+  Serial.begin(9600);
+  Serial.print("The day is "); 
+   
+  switch (sensorReading) {
+  case 0:    
+    Serial.println("dark");
+    break;
+  case 1:    
+    Serial.println("dim");
+    break;
+  case 2:    
+    Serial.println("medium");
+    break;
+  case 3:
+    Serial.println("bright");
+    break;
+  default:
+    Serial.println("... I don't know!!!");
   } 
-  else if (tempAigua == 100)   // 
-  {
-    Serial.print("Aigua a 100ºC");
-  }
-  else if (tempAigua >= 90)   // 
-  {
-    Serial.print("Aigua apunt de bullir");
-  }
-  else                    // 
-  {
-    Serial.print("Aigua encara no bull");
-  }
 }
 
 //********** Loop *****************************************************************
-void loop()   // 
+void loop()  
 {
 }
 
